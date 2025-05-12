@@ -94,6 +94,7 @@ export default function Form() {
                 <form onSubmit={handleSubmit}>
                     <label>Brand <br />
                         <select name="brand" value={formData.brand} style={{ width: '400px', height: '40px' }}>
+                            <option value=""></option>
                             <option value={subcategory}>{subcategory}</option>
                         </select>
                     </label>
@@ -114,10 +115,12 @@ export default function Form() {
                                         onClick={() => setFormData({ ...formData, fuel: item })}
                                         key={item}
                                         style={{
+                                            border: '1px solid grey',
+                                            borderRadius:'2px',
                                             height: '30px',
                                             width: '70px',
                                             marginRight: '20px',
-                                            backgroundColor: formData.fuel === item ? 'grey' : 'white'
+                                            backgroundColor: formData.fuel === item ? 'skyblue' : 'white'
                                         }}>
                                         {item}
                                     </button>
@@ -136,10 +139,12 @@ export default function Form() {
                                         onClick={() => setFormData({ ...formData, transmission: item })}
                                         key={item}
                                         style={{
+                                            border: '1px solid grey',
+                                            borderRadius:'2px',
                                             height: '30px',
                                             width: '70px',
                                             marginRight: '20px',
-                                            backgroundColor: formData.transmission === item ? 'grey' : 'white'
+                                            backgroundColor: formData.transmission === item ? 'skyblue' : 'white'
                                         }}>
                                         {item}
                                     </button>
@@ -165,10 +170,12 @@ export default function Form() {
                                         onClick={() => setFormData({ ...formData, owner: item })}
                                         key={item}
                                         style={{
+                                            border: '1px solid grey',
+                                            borderRadius:'2px',
                                             height: '30px',
                                             width: '70px',
                                             marginRight: '20px',
-                                            backgroundColor: formData.owner === item ? 'grey' : 'white'
+                                            backgroundColor: formData.owner === item ? 'skyblue' : 'white'
                                         }}>
                                         {item}
                                     </button>
@@ -240,8 +247,8 @@ export default function Form() {
                     </div>
 
                     <div className="form-section location-section" style={{ padding: '20px 0', borderTop: '1px solid #ccc' }}>
-                        <h2>📍 CONFIRM YOUR LOCATION</h2>
-                        <select name="state" value={formData.state} onChange={handleChange} style={{ width: '100%', height: '40px', padding: '5px' }}>
+                        <h3> CONFIRM YOUR LOCATION</h3>
+                        <select name="state" value={formData.state} onChange={handleChange} style={{ width: '400px', height: '40px', padding: '5px' }}>
                             <option value="">Select your state</option>
                             <option value="delhi">Delhi</option>
                             <option value="maharashtra">Maharashtra</option>
@@ -253,10 +260,15 @@ export default function Form() {
                     </div>
 
                     <div className="form-section review-section" style={{ padding: '20px 0', borderTop: '1px solid #ccc' }}>
-                        <h2>👤 REVIEW YOUR DETAILS</h2>
-                        <input name="name" type="text" value={formData.name} placeholder="Your name" onChange={handleChange} style={{ width: '100%', height: '40px', fontSize: '14px', padding: '5px' }} />
+                        <h3> REVIEW YOUR DETAILS</h3>
+                        <div style={{display:'flex',justifyContent:'space-between'}}>
+                            <div className='pro'>
+                            <img src="/logo192.png" alt="" style={{height:'100%',width:'auto'}} />
+                        </div>
+                        <input name="name" type="text" value={formData.name} placeholder="Your name" onChange={handleChange} style={{ width: '400px', height: '40px', fontSize: '14px', padding: '5px' }} />
                         {errors.name && <p className="error">{errors.name}</p>}
-                        <input name="phone" type="text" value={formData.phone} placeholder="+91" onChange={handleChange} style={{ width: '100%', height: '40px', fontSize: '14px', padding: '5px' }} />
+                        </div>
+                        <input name="phone" type="text" value={formData.phone} placeholder="+91" onChange={handleChange} style={{ width: '400px', height: '40px', fontSize: '14px', padding: '5px' }} />
                         {errors.phone && <p className="error">{errors.phone}</p>}
                     </div>
 
@@ -264,7 +276,7 @@ export default function Form() {
                         <button
                             type="submit"
                             style={{
-                                width: '100%',
+                                width: '400px',
                                 backgroundColor: '#002f34',
                                 color: '#fff',
                                 padding: '12px',
